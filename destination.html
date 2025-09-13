@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Travel Agency - Destinations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #ba3e3e;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            color: rgb(17, 226, 153);
+            margin-bottom: 40px;
+            padding: 20px 0;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .destination-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .card-header {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .paris { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23ff6b6b" width="400" height="200"/><text x="200" y="100" fill="white" font-size="24" text-anchor="middle" dy="8">🗼 PARIS</text></svg>'); }
+        .india { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23ff9f43" width="400" height="200"/><text x="200" y="100" fill="white" font-size="24" text-anchor="middle" dy="8">🕌 INDIA</text></svg>'); }
+        .newyork { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%2354a0ff" width="400" height="200"/><text x="200" y="100" fill="white" font-size="24" text-anchor="middle" dy="8">🏙️ NEW YORK</text></svg>'); }
+        
+        .card-title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .package {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .package:hover {
+            transform: scale(1.05);
+        }
+        
+        .package h4 {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .package .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
+        .places {
+            margin-top: 20px;
+        }
+        
+        .places h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .places-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .place-tag {
+            background: #f8f9fc;
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 2px solid #e9ecef;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .destinations {
+                grid-template-columns: 1fr;
+            }
+            
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DREAM TRAVEL AGENCY</h1>
+            <p>Discover Amazing Destinations Around the World</p>
+        </header>
+        
+        <div class="destinations">
+            <!-- Paris -->
+            <div class="destination-card">
+                <div class="card-header paris">
+                    <div class="card-title">Paris</div><img src="https://plus.unsplash.com/premium_photo-1661919210043-fd847a58522d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UGFyaXN8ZW58MHx8MHx8fDA%3D" width="400" height="200">
+                </div>
+                <div class="card-content">
+                    <div class="package-grid">
+                        <div class="package">
+                            <h4>Classic</h4>
+                            <div class="price">Rs 60,000</div>
+                            <small>4 Days & 3 Nights</small>
+                        </div>
+                        <div class="package">
+                            <h4>Romantic</h4>
+                            <div class="price">Rs 99,000</div>
+                            <small>7 Days & 6 Nights</small>
+                        </div>
+                        <div class="package">
+                            <h4>Luxury</h4>
+                            <div class="price">Rs 1,25,000</div>
+                            <small>12 Days & 11 Nights</small>
+                        </div>
+                    </div>
+                    
+                    <div class="places">
+                        <h3>Must Visit Places</h3>
+                        <div class="places-list">
+                            <span class="place-tag">Eiffel Tower</span>
+                            <span class="place-tag">Grand Palais</span>
+                            <span class="place-tag">Notre-Dame</span>
+                            <span class="place-tag">Square du Vert Galant</span>
+                            <span class="place-tag">Versailles Palace</span>
+                            <span class="place-tag">Seine River</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn">Book Your Trip To Paris</a>
+                </div>
+            </div>
+            
+            <!-- India -->
+            <div class="destination-card">
+              <div class="card-header india">
+                    <div class="card-title">India</div> <img src="https://plus.unsplash.com/premium_photo-1697729844084-c03db2377161?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGluZGlhfGVufDB8fDB8fHww" width="400" height="200">
+                </div>
+                <div class="card-content">
+                    <div class="package-grid">
+                        <div class="package">
+                            <h4>Palace on Wheels</h4>
+                            <div class="price">Rs 6,000</div>
+                            <small>5 Days & 4 Nights</small>
+                        </div>
+                        <div class="package">
+                            <h4>Royal Trails</h4>
+                            <div class="price">Rs 12,000</div>
+                            <small>8 Days & 7 Nights</small>
+                        </div>
+                        <div class="package">
+                            <h4>Soul of India</h4>
+                            <div class="price">Rs 18,000</div>
+                            <small>14 Days & 13 Nights</small>
+                        </div>
+                    </div>
+                    
+                    <div class="places">
+                        <h3>Must Visit Places</h3>
+                        <div class="places-list">
+                            <span class="place-tag">Ram Janmabhoomi</span>
+                            <span class="place-tag">Pangong Tso</span>
+                            <span class="place-tag">Jaipur City Palace</span>
+                            <span class="place-tag">Kerala Backwaters</span>
+                            <span class="place-tag">Goa Beaches</span>
+                            <span class="place-tag">Varanasi Ghats</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn">Book Your Trip To India </a>
+                </div>
+            </div>
+            
+            <!-- New York -->
+            <div class="destination-card">
+                <div class="card-header newyork">
+                    <div class="card-title">New York</div><img src="https://images.unsplash.com/photo-1523374228107-6e44bd2b524e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fE5ldyUyMFlvcmt8ZW58MHx8MHx8fDA%3D" width="400" height="200" alt="">
+                </div>
+                <div class="card-content">
+                    <div class="package-grid">
+                        <div class="package">
+                            <h4>City Explorer</h4>
+                            <div class="price">Rs1,49,000</div>
+                            <small>4 Days & 3 Nights</small>
+                        </div>
+                        <div class="package">
+                            <h4>Empire Luxe</h4>
+                            <div class="price">Rs1,99,999</div>
+                            <small>7 Days & 6 Nights</small>
+                        </div>
+                        <div class="package">
+                            <h4>NYC Platinum</h4>
+                            <div class="price">Rs2,25,000</div>
+                            <small>10 Days & 9 Nights</small>
+                        </div>
+                    </div>
+                    
+                    <div class="places">
+                        <h3>Must Visit Places</h3>
+                        <div class="places-list">
+                            <span class="place-tag">Statue of Liberty</span>
+                            <span class="place-tag">Times Square</span>
+                            <span class="place-tag">Central Park</span>
+                            <span class="place-tag">Empire State Building</span>
+                            <span class="place-tag">Brooklyn Bridge</span>
+                            <span class="place-tag">9/11 Memorial</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn">Book Your Trip To New York </a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 Dream Travel Agency. Making your travel dreams come true.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Add smooth scrolling and interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.destination-card');
+            const packages = document.querySelectorAll('.package');
+            
+            // Add stagger animation to cards
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+            
+            // Add click effects to packages
+            packages.forEach(pkg => {
+                pkg.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.05)';
+                    }, 150);
+                });
+            });
+            
+            // Book button interactions
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const destination = this.closest('.destination-card').querySelector('.card-title').textContent;
+                    alert(`Booking request for Rs{destination} received! Our team will contact you soon.`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
