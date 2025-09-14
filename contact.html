@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Dream Travel Agency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info, .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h2, .contact-form h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-item h3 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .info-item p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .map-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .map-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="new logo.jpg" width="200" height="200">
+            <h1>Dream Travel Agency</h1>
+            <p>Your journey begins with a conversation</p>
+        </div>
+
+        <div class="content">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                
+                <div class="info-item">
+                    <h3>📍 Office Address</h3>
+                    <p>123 Travel Street<br>
+                    Downtown District<br>
+                    Mumbai, Maharashtra 400001</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>📞 Phone Numbers</h3>
+                    <p>Main Office: +91 22 1234-5678<br>
+                    WhatsApp: +91 98765-43210<br>
+                    Emergency: +91 22 9876-5432</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>✉️ Email Addresses</h3>
+                    <p>General: info@dreamtravel.com<br>
+                    Bookings: bookings@dreamtravel.com<br>
+                    Support: support@dreamtravel.com</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>🕒 Business Hours</h3>
+                    <p>Monday - Saturday: 9:00 AM - 7:00 PM<br>
+                    Sunday: 10:00 AM - 5:00 PM<br>
+                    24/7 Emergency Support Available</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>🌐 Connect With Us</h3>
+                    <p>Website: www.dreamtravel.com<br>
+                    Facebook: @DreamTravelAgency<br>
+                    Instagram: @dreamtravelindia</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2>Send Us a Message</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="travel-type">Travel Interest</label>
+                        <select id="travel-type" name="travel-type">
+                            <option value="">Select Travel Type</option>
+                            <option value="domestic">Domestic Travel</option>
+                            <option value="international">International Travel</option>
+                            <option value="honeymoon">Honeymoon Package</option>
+                            <option value="family">Family Vacation</option>
+                            <option value="business">Business Travel</option>
+                            <option value="group">Group Tours</option>
+                            <option value="adventure">Adventure Travel</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Budget Range (INR)</label>
+                        <select id="budget" name="budget">
+                            <option value="">Select Budget</option>
+                            <option value="under-25k">Under ₹25,000</option>
+                            <option value="25k-50k">₹25,000 - ₹50,000</option>
+                            <option value="50k-1l">₹50,000 - ₹1,00,000</option>
+                            <option value="1l-2l">₹1,00,000 - ₹2,00,000</option>
+                            <option value="above-2l">Above ₹2,00,000</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your dream destination, travel dates, number of travelers, or any specific requirements..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <h2>Find Our Office</h2>
+            <div class="map-placeholder">
+                📍 Interactive Map: 123 Travel Street, Mumbai
+                <br>(Replace with actual Google Maps embed)
+            </div>
+        </div>
+    </div>
+</body>
+</html>
